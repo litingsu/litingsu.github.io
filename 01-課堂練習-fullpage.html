@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.9/fullpage.css">
+
+
+    <style>
+
+        /* .section {
+            width: 500px;
+            height: 500px;
+        } */
+        .page {
+            width: 100%;
+            height: 100%;
+        }
+
+        .bg_red {
+            background-color: red;
+        }
+
+        .bg_green {
+            background-color: seagreen;
+        }
+
+        .bg_blue {
+            background-color: steelblue;
+        }
+
+        .bg_grey {
+            background-color: gray;
+        }
+
+        .bg_yellow {
+            background-color: yellow;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- 說明：section為上下，slide為左右 -->
+    <div id="fullpage">
+        <div class="section">
+            <div class="page bg_red">1</div>
+        </div>
+
+        <div class="section">
+            <div class="slide">
+                <div class="page bg_green">2-1</div>
+            </div>
+
+            <div class="slide">
+                <div class="page bg_blue">2-2</div>
+            </div>
+
+            <div class="slide">
+                <div class="page bg_grey">2-3</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="page bg_yellow">3</div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.9/fullpage.js">
+    </script>
+
+    <!-- 說明：只要有匯js都要做Initialization的動作(from this website:https://github.com/alvarotrigo/fullpage.js) -->
+    <script>
+        // 說明：使用Initialization with Vanilla Javascript，用id的方式去選#fullpage(如果是可以選，表示可以換名字)
+        new fullpage('#fullpage', {
+            //options here
+            autoScrolling: true,
+            scrollHorizontally: true,
+            fitToSectionDelay: 1000,
+        });
+
+        //methods
+        // 說明一：setAllowScrolling指允許此程式滾動，網頁範例有誤，把範例(false)改為(true)，才能行使
+        // 說明二：fullpage_api裡面的方法setAllowScrolling
+        fullpage_api.setAllowScrolling(true);
+
+
+    // 說明：嘗試Initialization with jQuery完全沒有效果，如下(因為需要於上面script第一層導入jQuery的套件才能行動)
+        // $(document).ready(function () {
+        //     $('#fullpage').fullpage({
+        //         //options here
+        //         autoScrolling: true,
+        //         scrollHorizontally: true
+        //     });
+
+        //     //methods
+        //     // 說明：setAllowScrolling指允許此程式滾動，把範例(false)改為(true)
+        //     $.fn.fullpage.setAllowScrolling(true);
+        // });
+    </script>
+</body>
+
+</html>
